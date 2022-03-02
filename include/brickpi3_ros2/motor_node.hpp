@@ -12,9 +12,9 @@
 
 #include "rclcpp/rclcpp.hpp"
 
-#include "limit.hpp"
 #include "constants.hpp"
-#include "BrickPi3.hpp"
+
+#include "../../libs/BrickPi3/BrickPi3.hpp"
 
 class MotorNode: public rclcpp::Node {
     private:

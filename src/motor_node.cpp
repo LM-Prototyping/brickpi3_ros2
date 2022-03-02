@@ -143,8 +143,8 @@ void MotorNode::publish_velocity_limit() {
 void MotorNode::set_velocity_callback(const std_msgs::msg::Float32::SharedPtr msg) {
     float new_velocity = msg->data;
 
-    float clamped_values = utils::clamp_to_limit(new_velocity, this->velocity_limit);
-    int16_t velocity_in_degrees = (int16_t) utils::radians_to_degree(new_velocity);
+    float clamped_values = utils::clamp_to_limit<float>(new_velocity, this->velocity_limit);
+    int16_t velocity_in_degrees = (int16_t) utils::radians_to_degree(clamped_values);
 
     this->bp.set_motor_dps(this->port, velocity_in_degrees);
 }
@@ -173,7 +173,7 @@ void MotorNode::set_position_offset_callback(const std_msgs::msg::Float64::Share
     this->bp.offset_motor_encoder(this->port, position_in_degrees);
 }
 
-void MotorNode::reset_position_offset_callback(const std_msgs::msg::Empty::SharedPtr msg) {
+void MotorNode::reset_position_offset_callback(const std_msgs::msg::Empty::SharedPtr) {
     this->bp.reset_motor_encoder(this->port);
 }
 

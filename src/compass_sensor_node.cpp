@@ -6,7 +6,8 @@
 
 #include "../include/brickpi3_ros2/base_sensor_node.hpp"
 #include "../include/brickpi3_ros2/compass_sensor_node.hpp"
-#include "../include/brickpi3_ros2/BrickPi3.hpp"
+
+#include "../libs/BrickPi3/BrickPi3.hpp"
 
 #include "../include/brickpi3_ros2/constants.hpp"
 

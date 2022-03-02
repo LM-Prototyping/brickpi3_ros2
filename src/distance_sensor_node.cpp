@@ -4,7 +4,8 @@
 
 #include "../include/brickpi3_ros2/base_sensor_node.hpp"
 #include "../include/brickpi3_ros2/distance_sensor_node.hpp"
-#include "../include/brickpi3_ros2/BrickPi3.hpp"
+
+#include "../libs/BrickPi3/BrickPi3.hpp"
 
 using namespace std::chrono;
 using namespace std;

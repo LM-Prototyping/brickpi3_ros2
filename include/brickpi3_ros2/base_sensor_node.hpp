@@ -7,7 +7,8 @@
 #include <string>
 
 #include "rclcpp/rclcpp.hpp"
-#include "BrickPi3.hpp"
+
+#include "../../libs/BrickPi3/BrickPi3.hpp"
 
 class BaseSensorNode: public rclcpp::Node {
     private:
@@ -15,7 +16,7 @@ class BaseSensorNode: public rclcpp::Node {
 
     protected:
         BrickPi3 bp;
-        int16_t port;
+        int8_t port;
 
     public:
         BaseSensorNode(std::string name);
@@ -27,7 +28,7 @@ class BaseSensorNode: public rclcpp::Node {
 
         virtual int read_value_from_brickpi3() {
             return 0;
-        }
+        };
 };
 
 #endif

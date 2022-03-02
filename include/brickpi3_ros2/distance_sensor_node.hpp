@@ -4,7 +4,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/int16.hpp"
 
-#include "BrickPi3.hpp"
+#include "../../libs/BrickPi3/BrickPi3.hpp"
 
 #include "base_sensor_node.hpp"
 

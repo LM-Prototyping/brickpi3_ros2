@@ -1,0 +1,3 @@
+[submodule "libs/BrickPi3"]
+	path = libs/BrickPi3
+	url = git@github.com:LM-Prototyping/BrickPi3.git

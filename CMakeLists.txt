@@ -18,19 +18,60 @@ find_package(std_msgs REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+set(DEFAULT_SOURCES
+    libs/BrickPi3/BrickPi3.cpp
+    src/utils.cpp
+)
+
+set(SENSOR_SOURCES
+    ${DEFAULT_SOURCES}
+    src/base_sensor_node.cpp
+)
+
 add_executable(motor_node
-  src/motor_node.cpp
-  src/BrickPi3/BrickPi3.cpp
+    src/motor_node.cpp
+    ${DEFAULT_SOURCES}
+)
+
+add_executable(distance_sensor 
+    src/distance_sensor_node.cpp
+    ${SENSOR_SOURCES}
+)
+
+add_executable(light_sensor
+    src/light_sensor_node.cpp
+    ${SENSOR_SOURCES}
+)
+
+add_executable(touch_sensor
+    src/touch_sensor_node.cpp
+    ${SENSOR_SOURCES}
+)
+
+add_executable(compass_sensor
+    src/compass_sensor_node.cpp
+    ${SENSOR_SOURCES}
 )
 
 install(DIRECTORY launch
-  DESTINATION share/${PROJECT_NAME})
+    DESTINATION share/${PROJECT_NAME})
 
 ament_target_dependencies(motor_node rclcpp std_msgs)
 
+ament_target_dependencies(distance_sensor rclcpp std_msgs)
+ament_target_dependencies(light_sensor rclcpp std_msgs)
+ament_target_dependencies(touch_sensor rclcpp std_msgs)
+ament_target_dependencies(compass_sensor rclcpp std_msgs)
+
 install(TARGETS
-  motor_node
-  DESTINATION lib/${PROJECT_NAME}
+    motor_node
+
+    distance_sensor
+    light_sensor  
+    touch_sensor
+    compass_sensor
+    
+    DESTINATION lib/${PROJECT_NAME}
 )
 
 ament_package()

@@ -28,15 +28,15 @@ std::chrono::milliseconds utils::get_duration_from_timestep_parameter(rclcpp::No
     return utils::get_duration_from_timestep(timestep);
 }
 
-int16_t utils::get_port_from_parameter(rclcpp::Node &node) {
+int8_t utils::get_port_from_parameter(rclcpp::Node &node) {
     // PORT_1 0x01
     // PORT_2 0x02
     // PORT_3 0x04
     // PORT_4 0x08
 
-    node.declare_parameter<int16_t>(PORT_NAME, -1);
+    node.declare_parameter<int8_t>(PORT_NAME, -1);
 
-    int16_t port; 
+    int8_t port; 
     node.get_parameter(PORT_NAME, port);
 
     if ( port == -1 ) {
@@ -53,17 +53,4 @@ float utils::degree_to_radians(int32_t degree) {
 
 int32_t utils::radians_to_degree(float radians) {
     return (int32_t) (radians * 180 / M_PI);
-}
-
-template <typename T>
-T utils::clamp_to_limit(T value, T limit) {
-    if ( value > limit ) {
-        return limit;
-    }
-
-    if ( value < -limit ) {
-        return -limit;
-    }
-
-    return value;
 }
