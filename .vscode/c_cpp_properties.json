@@ -1,0 +1,16 @@
+{
+  "configurations": [
+    {
+      "includePath": [
+        "~/Schreibtisch/Uni/Bachelorarbeit/LM-Framework/ros2Workspace/src/brickpi3_ros2",
+        "/home/reyk/Schreibtisch/Uni/Bachelorarbeit/LM-Framework/ros2Workspace/src/brickpi3_ros2",
+        "/opt/ros/foxy/include/"
+      ],
+      "intelliSenseMode": "linux-gcc-x64",
+      "compilerPath": "/usr/bin/clang",
+      "cStandard": "c11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
