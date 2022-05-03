@@ -28,6 +28,11 @@ set(SENSOR_SOURCES
     src/base_sensor_node.cpp
 )
 
+add_executable(clock_node
+    src/clock.cpp
+    ${DEFAULT_SOURCES}
+)
+
 add_executable(motor_node
     src/motor_node.cpp
     ${DEFAULT_SOURCES}
@@ -63,6 +68,8 @@ ament_target_dependencies(light_sensor rclcpp std_msgs)
 ament_target_dependencies(touch_sensor rclcpp std_msgs)
 ament_target_dependencies(compass_sensor rclcpp std_msgs)
 
+ament_target_dependencies(clock_node rclcpp std_msgs)
+
 install(TARGETS
     motor_node
 
@@ -70,6 +77,8 @@ install(TARGETS
     light_sensor  
     touch_sensor
     compass_sensor
+
+    clock_node
     
     DESTINATION lib/${PROJECT_NAME}
 )
