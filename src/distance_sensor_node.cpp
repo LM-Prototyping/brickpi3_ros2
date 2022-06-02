@@ -18,6 +18,8 @@ DistanceSensorNode::DistanceSensorNode(): BaseSensorNode("distance") {
 
 void DistanceSensorNode::publish_value_callback() {
     std_msgs::msg::Int16 message = std_msgs::msg::Int16();
+    this->read_value_from_brickpi3();
+
     message.data = this->sensor.cm;
 
     this->publisher->publish(message);
