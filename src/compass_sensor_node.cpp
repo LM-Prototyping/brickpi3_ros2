@@ -25,7 +25,6 @@ CompassSensorNode::CompassSensorNode(): BaseSensorNode("compass") {
 
     this->bp = BrickPi3();
     this->bp.set_sensor_type(this->port, SENSOR_TYPE_I2C, 0x0, &this->sensor);
-
 }
 
 void CompassSensorNode::publish_value_callback() {

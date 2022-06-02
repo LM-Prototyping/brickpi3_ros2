@@ -13,12 +13,12 @@ using namespace std;
 TouchSensorNode::TouchSensorNode(): BaseSensorNode("touch") {
     this->publisher = this->create_publisher<std_msgs::msg::Bool>("touch", 10);
 
-    this->bp.set_sensor_type(this->port, SENSOR_TYPE_NXT_LIGHT_ON);
+    this->bp.set_sensor_type(this->port, SENSOR_TYPE_TOUCH_NXT);
 }
 
 void TouchSensorNode::publish_value_callback() {
     std_msgs::msg::Bool message = std_msgs::msg::Bool();
-    message.data = this->sensor.pressed;
+    message.data = this->read_value_from_brickpi3() == 1 ? true : false;
 
     this->publisher->publish(message);
 }

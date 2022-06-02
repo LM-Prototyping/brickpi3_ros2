@@ -79,6 +79,7 @@ MotorNode::MotorNode(): Node("motor") {
 
     // Set up Brickpi
     this->bp.detect();
+    this->bp.reset_motor_encoder(this->port);
 
     // Set limits
     this->power_limit = POW_LIMIT;

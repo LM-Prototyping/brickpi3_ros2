@@ -18,6 +18,8 @@ LightSensorNode::LightSensorNode(): BaseSensorNode("light") {
 
 void LightSensorNode::publish_value_callback() {
     std_msgs::msg::Int16 message = std_msgs::msg::Int16();
+    this->read_value_from_brickpi3();
+
     message.data = this->sensor.reflected;
 
     this->publisher->publish(message);
